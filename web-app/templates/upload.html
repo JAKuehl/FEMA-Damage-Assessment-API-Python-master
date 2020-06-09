@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>How to use the app</h2>
+
+<p>
+Please have the location services enabled on your mobile device and face the affected building and take a picture of it. You can also use the existing photos to get the results. <i>Please make sure you are using jpg or png files. Photos that have been transferred using messaging apps are compressed and will not inlclude the goegraphical information.</i>
+
+</p>
+
+      <form action = "http://localhost:5000/uploader" method = "POST"
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>
+
+<br><br>
+      {% endblock content %}

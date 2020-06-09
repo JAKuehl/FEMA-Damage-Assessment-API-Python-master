@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+
+<table style="width:100%">
+  <tr>
+    <td><img src="/static/google-pics/{{name}}.jpg" alt="google street view results" width= "256" height="256"></td>
+    <td><img src="/static/user-photo/{{filename}}" alt="user-photo" width= "256" height="256" style= "transform:rotate(90deg);" ></td>
+  </tr>
+  <tr>
+    <td><em>Before</em></td>
+    <td><em>After</em></td>
+  </tr>
+
+<style>
+tr, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+
+
+<h2>Summary report for {{address}}:</h2> <br>
+
+
+
+<table style="width:100%">
+  <tr>
+    <td>The zillow id for the unit:</td>
+    <td> <b>{{zillow_id}}</b> </td>
+    <td>Property type:</td>
+    <td> <b>{{home_type}}</b> </td>
+  </tr>
+
+  <tr>
+    <td> Living area:</td>
+    <td><b>{{home_size}} sqft</b></td>
+    <td>Lot Size:</td>
+    <td><b>{{property_size}} sqft</b></td>
+  </tr>
+
+  <tr>
+  <td>Bedrooms:</td>
+  <td><b>{{bedrooms}}</b></td>
+  <td> Bathrooms:</td>
+  <td><b>{{bathrooms}}</b></td>
+  </tr>
+
+  <tr>
+
+    <td>Last Sold Price:</td>
+    <td><b>${{last_sold_price}}</b></td>
+    <td>Last time sold:</td>
+    <td><b>{{last_sold_date}}</b></td>
+  </tr>
+
+  <tr>
+
+    <td>Year Built:</td>
+    <td><b>{{year_built}}</b></td>
+    <td>Zestimate price:</td>
+    <td><b>${{zestimate_amount}}</b></td>
+  </tr>
+
+
+</table>
+
+<br><br>
+
+
+<form action = "http://localhost:5000/submitted" method = "POST" enctype = "multipart/form-data">
+  <fieldset>
+    <p>
+      <label>Disaster Type &nbsp;</label>
+      <select id = "type">
+        <option value="Select"> --Select one--</option>
+        <option value="Earthquake">Earthquake</option>
+        <option value="Fire">Fire</option>
+        <option value="Flooding">Flooding</option>
+        <option value="Hurricane">Hurricane/Typhoon</option>
+        <option value="Landslide">Landslide</option>
+        <option value="Storms">Severe Storms</option>
+        <option value="Sewer">Sewer Backup</option>
+        <option value="Outage">Utility Outage</option>
+        <option value="Winds">Straight line winds</option>
+        <option value="Tornado">Tornado</option>
+        <option value="Tsunami">Tsunami</option>
+        <option value="Terrorism">Terrorism</option>
+        <option value="Volcano">Volcanic Eruption</option>
+      </select>
+      <br>
+
+      <label>Accessible &nbsp;</label>
+      <select name="Accessibility">
+        <option value="Select">--Select one--</option>
+        <option value="Accessible">Accessible</option>
+        <option value="Not-Accessible">Not-Accessible</option>
+      </select>
+      <br>
+
+      <label>Extend of the damage &nbsp;</label>
+      <select name="damage">
+        <option value="Select">--Select one--</option>
+        <option value="Destroyed">Destroyed</option>
+        <option value="Major">Major</option>
+        <option value="Minor">Minor</option>
+      </select>
+      <br>
+
+      <label>Occupancy Status &nbsp;</label>
+      <select name="OC status">
+        <option value="Select">--Select one--</option>
+        <option value="Primary">Primary</option>
+        <option value="Secondary">Secondary</option>
+        <option value="Vacant">Vacant</option>
+      </select>
+      <br>
+
+      <label>Ownership &nbsp;</label>
+      <select name="Ownership">
+        <option value="Select">--Select one--</option>
+        <option value="Owner">Owner</option>
+        <option value="Renter">Renter</option>
+      </select>
+      <br>
+    </p>
+  </fieldset>
+  <input type="Submit">
+  <br><br>
+</form>
+
+
+</body>
+{% endblock content %}

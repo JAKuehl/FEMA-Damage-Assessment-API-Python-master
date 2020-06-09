@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+  During the recovery phase following a disaster, FEMA IA team members perform damage assessment 'On the ground' to assess the level of damage caused to residential parcels and critical infrastructures. This work is very labor intensive and inefficient if done manually. Also, due to verification measures put in place by FEMA, the assessment teams have to first report to the regional centeers and after the information has been verified the information will be passed to the FEMA headquarters to start restoration fundings. As expected this process can take very long time, and leaves a lot of people affected by disasters in shelters and out of their home.
+
+This is where using our app the assessment team can speed up their process by taking a simple photo and forwarding the information directly to FEMA regional and headquarters databases. Currently we have a Web App working where the FEMA IA team members will take a photo of the affected residential parcel and then a form containing the pre-disaster and post-disaster photos will appear on the screen and provides the following information about the property: <br>
+<ul>
+  <li>Address </li>
+  <li>The zillow id for the unit </li>
+  <li>Home type </li>
+  <li>Year Built </li>
+  <li>Lot size </li>
+  <li>Living area </li>
+  <li>Bathrooms </li>
+  <li>Bedrooms </li>
+  <li>Last time sold </li>
+  <li>Last sold price </li>
+  <li>Zestimate price </li>
+</ul>
+
+Also a form will appear on the bottom of these outputs where the FEMA member will input the following information from drop down menus dedicated to the metrics FEMA looks at before certifying fundings. <br>
+<ul>
+  <li> Disaster Type</li>
+  <li> Damage Degree</li>
+  <li> Occupancy Status</li>
+  <li> Rent Status of the neighborhood</li>
+  <li> Property access</li>
+  <li> Additional notes</li>
+</ul>
+After the submitting the above fields all the data will be saved into a PostGreSQL Database and can be accessed at both regional and headquarters.
+  </Body>
+{% endblock content %}
